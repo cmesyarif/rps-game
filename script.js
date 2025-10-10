@@ -11,7 +11,7 @@ function getComputerChoice() {
   }
 }
 
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 // Get the human choice
 function getHumanChoice() {
@@ -19,4 +19,30 @@ function getHumanChoice() {
     return choice.toLowerCase(); // make the input case-insensitive
 }
 
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
+
+// Creating score variables
+let humanScore = 0;
+let computerScore = 0;
+
+// Play a single round
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    console.log("It's a tie! Both chose " + humanChoice);
+  } else if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+    humanScore++;
+  } else {
+    console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+    computerScore++;
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
