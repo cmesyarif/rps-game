@@ -1,0 +1,225 @@
+/* --- Base Styles --- */
+:root {
+  --primary: #0077ff;
+  --accent: #f5a623;
+  --bg: #f0f4f8;
+  --text: #222;
+  --white: #fff;
+  --radius: 12px;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Header --- */
+header {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #555;
+  font-style: italic;
+}
+
+/* --- Sections --- */
+main section {
+  background: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 1rem auto;
+  max-width: 700px;
+}
+
+/* --- How to Play --- */
+#how-to-play {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+section p {
+  line-height: 1.6;
+}
+
+/* --- Choice Buttons --- */
+.choices {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.choice-btn {
+  border: none;
+  background: var(--white);
+  border-radius: 50%;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow);
+}
+
+.choice-btn:hover {
+  transform: scale(1.1);
+  background: var(--primary);
+}
+
+.choice-btn img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  filter: brightness(0.9);
+  transition: var(--transition);
+}
+
+.choice-btn:hover img {
+  filter: brightness(1.2) invert(1);
+}
+
+/* --- Results Section --- */
+.results {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.results p {
+  margin: 0.5rem 0;
+}
+
+/* --- Animated text for choices --- */
+.results span {
+  display: inline-block;
+  min-width: 80px;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  animation: fadeCycle 0.5s ease-in-out infinite alternate;
+}
+
+/* This animation gives a pulsing/fading effect */
+@keyframes fadeCycle {
+  from {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.message {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  color: var(--accent);
+  transition: var(--transition);
+}
+
+/* --- Scoreboard --- */
+.scoreboard {
+  margin-top: 1.5rem;
+}
+
+.scoreboard h2 {
+  color: var(--primary);
+  margin-bottom: 0.8rem;
+}
+
+.scoreboard p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+
+.scoreboard span {
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* --- Animated text for score message --- */
+.score-msg {
+  min-width: 80px;
+  font-weight: bold;
+  text-transform: capitalize;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  animation: fadeCycle 0.5s ease-in-out infinite alternate;
+}
+
+/* This animation gives a pulsing/fading effect */
+@keyframes fadeCycle {
+  from {
+    opacity: 0.5;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+
+/* --- Reset Button --- */
+.reset-btn {
+  margin-top: 1rem;
+  background: var(--accent);
+  color: var(--white);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.reset-btn:hover {
+  background: #e59400;
+  transform: scale(1.05);
+}
+
+
+/* --- Footer --- */
+footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .choice-btn img {
+    width: 60px;
+    height: 60px;
+  }
+
+  main section {
+    padding: 1rem;
+  }
+}
