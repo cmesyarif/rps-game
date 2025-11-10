@@ -3,66 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RPS Game</title>
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <title>Rock Paper Scissors</title>
+  <link rel="icon" type="image/png" href="images/rock.png">
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
 
 <body>
   <header>
-    <h1>Rock-Paper-Scissors Game</h1>
+    <h1>Rock Paper Scissors</h1>
     <p class="subtitle">Test your luck and strategy against the computer!</p>
   </header>
 
   <main>
-    <section aria-labelledby="how-to-play">
-        <h2 id="how-to-play">How to Play</h2>
-        <p>
-        Choose your choice: Rock, Paper, or Scissors. The computer will also pick one at random. 
-        The winner is decided by the classic rules:
-        <strong>Rock beats Scissors, Paper beats Rock, Scissors beats Paper.</strong>
-        If both choices are the same, it's a tie!
+    <section>
+        <h2>How to Play</h2>
+        <p class="par">
+        Choose your weapon: Rock, Paper, or Scissors. The computer will also pick one at random.
+        The rules are simple — Rock beats Scissors, Paper beats Rock, and Scissors beat Paper. 
+        If both choices are the same, it's a tie. <em>The first to reach five points wins the game!</em>
         </p>
     </section>
 
-    <section class="game-area" aria-labelledby="make-choice">
-        <h2 id="make-choice">Make Your Choice</h2>
-        <div class="choices">
-            
-        <!-- Each button uses an accessible label and image -->
+    <!-- Game Area -->
+    <section class="game-area">
+
+      <div class="scoreboard">
+        <div class="scoreboard-info">
+          <h2 id="score-info">Choose Your Weapon!</h2>
+          <p class="par" id="score-msg">The first to reach 5 points wins the game</p>
+        </div>
+
+        <div class="display-board">
+          <div>
+            <div id="player-choice">?</div>
+            <div id="player-score">Player: 0</div>
+          </div>
+          <div>
+            <div id="computer-choice">?</div>
+            <div id="computer-score">Computer: 0</div>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="choice-btn-box">
         <button id="rock" class="choice-btn" aria-label="Rock">
-            <img src="images/rock.png" alt="Rock" />
+          <img src="images/rock.png" alt="Rock" />
+          <p class="caption">Rock</p>
         </button>
         <button id="paper" class="choice-btn" aria-label="Paper">
-            <img src="images/paper.png" alt="Paper" />
+          <img src="images/paper.png" alt="Paper" />
+          <p class="caption">Paper</p>
         </button>
         <button id="scissors" class="choice-btn" aria-label="Scissors">
-            <img src="images/scissors.png" alt="Scissors" />
+          <img src="images/scissors.png" alt="Scissors" />
+          <p class="caption">Scissors</p>
         </button>
-        </div>
-    </section>
+      </div>
 
-    <section class="results" aria-live="polite">
-        <h2>Round Results</h2>
-        <p id="human-choice">Your choice: <span></span></p>
-        <p id="computer-choice">Computer choice: <span></span></p>
-        <p id="msg" class="message"></p>
-    </section>
-
-    <section class="scoreboard">
-        <h2>Live Score</h2>
-        <p id="human-score">You: <span>0</span></p>
-        <p id="computer-score">Computer: <span>0</span></p>
-
-        <!-- Reset Button -->
-        <button id="reset-btn" class="reset-btn" aria-label="Reset Scores">🔁 Reset Game</button>
     </section>
   </main>
 
+  
+  <div class="modal" id="endgameModal">
+    <p class="modal-title" id="endgameMsg"></p>
+    <button class="btn-restart" id="restartBtn">Play again</button>
+  </div>
+  <div class="overlay" id="overlay"></div>
+  
   <footer>
         <small>© 2025 Rock-Paper-Scissors Game by <a href="https://github.com/cmesyarif" target="_blank">Syarifuddin</a></small>
   </footer>
-
 </body>
 </html>
